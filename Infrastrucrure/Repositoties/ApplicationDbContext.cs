@@ -1,11 +1,12 @@
-﻿using Domain.Entities;
+﻿using Domain.Abtractions.DbContext;
+using Domain.Entities;
 using Domain.Entities.Identity;
 using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
 using Parts.Domain.Entities.Identity;
 namespace Infrastrucrure.Repositoties
 {
-    public sealed class ApplicationDbContext : IdentityDbContext<AppUser, AppRole, Guid>
+    public sealed class ApplicationDbContext : IdentityDbContext<AppUser, AppRole, Guid>, IApplicationDbContext
     {
         public ApplicationDbContext(DbContextOptions<ApplicationDbContext> options)
             : base( )

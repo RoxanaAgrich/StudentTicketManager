@@ -1,9 +1,8 @@
 ﻿using Domain.Shared;
 using FluentValidation;
 using MediatR;
-using static System.Runtime.InteropServices.JavaScript.JSType;
 
-namespace Parts.Application.Behaviors;
+namespace Application.Behaviors;
 public class ValidationPipelineBehavior<TRequest, TResponse> : IPipelineBehavior<TRequest, TResponse>
     where TRequest : IRequest<TResponse>
     where TResponse : Result

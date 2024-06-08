@@ -1,11 +1,12 @@
-﻿namespace Domain.Abtractions.Shared
+﻿using Domain.Shared;
+
+namespace Domain.Abtractions.Shared
 {
-    public interface IValidationResult 
+    public interface IValidationResult
     {
-        private static readonly Error ValidationError = new Error(
+        public static readonly Error ValidationError = new(
             "ValidationError",
-            "Validation problem occurred"
-            );
-        Error[] Error { get; }
+            "A validation problem occurred.");
+        Error[] Errors { get; }
     }
 }
