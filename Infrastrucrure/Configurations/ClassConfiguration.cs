@@ -11,7 +11,7 @@ namespace Infrastrucrure.Configurations
         {
             builder.ToTable(TableName.Class);
             builder.HasKey(x => x.Id);
-            builder.Property(x => x.ClassName).HasMaxLength (255).IsRequired();
+            builder.Property(x => x.Name).HasMaxLength (255).IsRequired();
         }
     }
 }

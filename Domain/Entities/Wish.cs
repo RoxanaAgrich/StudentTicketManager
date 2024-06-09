@@ -1,12 +1,10 @@
-﻿using Domain.Abtractions.Common;
-using Domain.Abtractions.Entities;
-using System.Collections.ObjectModel;
+﻿using Domain.Abtractions.Entities;
 
 namespace Domain.Entities
 {
-    public class Wish:Entity<Guid>
+    public class Wish : Entity<Guid>
     {
-        public string WishName { get; set; }
-        public virtual Collection<Ticket>? Tickets { get; set; }
+        public string Name { get; set; }
+        public virtual ICollection<Ticket> Tickets { get; set; }
     }
 }

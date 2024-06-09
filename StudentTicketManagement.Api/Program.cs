@@ -3,6 +3,7 @@ using Application.DependencyInjection.Extensions;
 using Infrastrucrure.DependencyInjection.Extensions;
 using StudentTicketManagement.Api.Middleware;
 using StudentTicketManagement.Api.DependencyInjection.Extensions;
+using MicroElements.Swashbuckle.FluentValidation.AspNetCore;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -16,6 +17,10 @@ builder.Logging
 
 builder.Host.UseSerilog();
 builder.Services.AddInfrastructureServices();
+builder.Services.AddRedisService(builder.Configuration);
+
+builder.Services.AddJwtAuthentication(builder.Configuration);
+
 builder.Services.AddConfigureMediatR();
 builder.Services.AddConfigureAutoMapper();
 
@@ -33,6 +38,22 @@ builder.Services.AddCors(options =>
         });
 });
 builder.Services.AddTransient<ExceptionHandlingMiddleware>();
+
+builder.Services.AddSqlServices(builder.Configuration);
+
+builder.Services
+        .AddSwaggerGenNewtonsoftSupport()
+        .AddFluentValidationRulesToSwagger()
+        .AddEndpointsApiExplorer()
+        .AddSwagger();
+
+builder.Services
+    .AddApiVersioning(options => options.ReportApiVersions = true)
+    .AddApiExplorer(options =>
+    {
+        options.GroupNameFormat = "'v'VVV";
+        options.SubstituteApiVersionInUrl = true;
+    });
 
 var app = builder.Build();
 app.UseMiddleware<ExceptionHandlingMiddleware>();
