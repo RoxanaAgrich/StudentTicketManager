@@ -1,7 +1,7 @@
 ﻿using Microsoft.EntityFrameworkCore.Metadata.Builders;
 using Microsoft.EntityFrameworkCore;
-using Parts.Domain.Entities.Identity;
 using Infrastrucrure.Constant;
+using Domain.Entities.Identity;
 
 namespace Infrastructure.Configurations;
 internal sealed class AppRoleConfiguration : IEntityTypeConfiguration<AppRole>

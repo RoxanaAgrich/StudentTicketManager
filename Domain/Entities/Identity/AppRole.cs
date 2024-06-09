@@ -1,5 +1,4 @@
-﻿using Domain.Entities.Identity;
-using Microsoft.AspNetCore.Identity;
+﻿using Microsoft.AspNetCore.Identity;
 
 namespace Domain.Entities.Identity;
 public class AppRole : IdentityRole<Guid>
