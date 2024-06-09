@@ -3,14 +3,14 @@ using Domain.Entities;
 using Domain.Entities.Identity;
 using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
-using Parts.Domain.Entities.Identity;
+using Action = Domain.Entities.Identity.Action;
 
 namespace Infrastrucrure;
 
 public sealed class ApplicationDbContext : IdentityDbContext<AppUser, AppRole, Guid>, IApplicationDbContext
 {
     public ApplicationDbContext(DbContextOptions<ApplicationDbContext> options)
-        : base( )
+        : base(options)
     {
     }
 
