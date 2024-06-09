@@ -59,7 +59,7 @@ var app = builder.Build();
 app.UseMiddleware<ExceptionHandlingMiddleware>();
 app.UseCors("AllowAllOrigins");
 app.UseAuthentication();
-app.UseAuthorization();
+//app.UseAuthorization();
 app.MapControllers();
 if (builder.Environment.IsDevelopment() || builder.Environment.IsStaging())
     app.ConfigureSwagger();

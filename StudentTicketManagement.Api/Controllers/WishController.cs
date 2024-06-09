@@ -8,7 +8,6 @@ using StudentTicketManagement.Api.Abstractions;
 
 namespace StudentTicketManagement.Api.Controllers
 {
-
     [ApiVersion(1)]
     public class WishController : ApiController
     {

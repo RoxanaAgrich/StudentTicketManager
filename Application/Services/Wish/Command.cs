@@ -1,6 +1,5 @@
 ﻿using Domain.Shared;
 using MediatR;
-using System.Windows.Input;
 
 namespace Application.Services.Wish;
 
