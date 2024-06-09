@@ -10,7 +10,7 @@ namespace Infrastrucrure;
 public sealed class ApplicationDbContext : IdentityDbContext<AppUser, AppRole, Guid>, IApplicationDbContext
 {
     public ApplicationDbContext(DbContextOptions<ApplicationDbContext> options)
-        : base( )
+        : base(options)
     {
     }
 
@@ -18,7 +18,7 @@ public sealed class ApplicationDbContext : IdentityDbContext<AppUser, AppRole, G
         builder.ApplyConfigurationsFromAssembly(AssemblyReference.Assembly);
 
     public DbSet<AppUser> AppUses { get; set; }
-    public DbSet<Action> Actions { get; set; }
+    public DbSet<Domain.Entities.Identity.Action> Actions { get; set; }
     public DbSet<Function> Functions { get; set; }
     public DbSet<ActionInFunction> ActionInFunctions { get; set; }
     public DbSet<Permission> Permissions { get; set; }

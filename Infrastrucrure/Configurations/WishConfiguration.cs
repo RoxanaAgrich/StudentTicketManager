@@ -12,9 +12,10 @@ namespace Infrastrucrure.Configurations
             builder.ToTable(TableName.Wish);
             builder.HasKey(x => x.Id);
             builder.Property(x=> x.Name).HasMaxLength(225).IsRequired();
-            builder.HasMany(x => x.Tickets)
-                .WithMany(x => x.Wishes);
 
+            builder.HasMany(x => x.WishTickets)
+                .WithOne(x => x.Wish)
+                .HasForeignKey(x => x.WishId);
         }
     }
 }

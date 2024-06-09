@@ -8,7 +8,7 @@ namespace Domain.Abtractions.DbContext
     public interface IApplicationDbContext
     {
         DbSet<AppUser> AppUses { get; set; }
-        DbSet<Action> Actions { get; set; }
+        DbSet<Domain.Entities.Identity.Action> Actions { get; set; }
         DbSet<Function> Functions { get; set; }
         DbSet<ActionInFunction> ActionInFunctions { get; set; }
         DbSet<Permission> Permissions { get; set; }

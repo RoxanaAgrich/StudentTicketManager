@@ -10,6 +10,6 @@ namespace Domain.Entities
             Name = name;
         }
         public string Name { get; set; }
-        public virtual ICollection<Ticket> Tickets { get; set; }
+        public virtual ICollection<WishTicket> WishTickets { get; set; }
     }
 }
