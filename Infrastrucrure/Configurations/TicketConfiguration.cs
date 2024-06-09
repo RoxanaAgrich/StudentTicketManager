@@ -16,24 +16,9 @@ namespace Infrastructure.Configurations
                 .WithMany(x => x.Tickets)
                 .HasForeignKey(x => x.StudentId);
 
-            builder
-                .HasMany(t => t.Wishes)
-                .WithMany(w => w.Tickets)
-                .UsingEntity<Dictionary<string, object>>(
-                    "TicketWish",
-                    j => j
-                        .HasOne<Wish>()
-                        .WithMany()
-                        .HasForeignKey("WishId"),
-                    j => j
-                        .HasOne<Ticket>()
-                        .WithMany()
-                        .HasForeignKey("TicketId"),
-                    j =>
-                    {
-                        j.HasKey("TicketId", "WishId");
-                        j.ToTable("TicketWishes");
-                    });
+            builder.HasMany(x => x.WishTickets)
+                .WithOne(x => x.Ticket)
+                .HasForeignKey(x => x.TicketId);
         }
     }
 }

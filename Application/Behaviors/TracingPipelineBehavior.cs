@@ -9,7 +9,7 @@ namespace Application.Behaviors
         where TRequest : IRequest<TResponse>
     {
         private readonly ILogger<TRequest> _logger = logger;
-        private readonly Stopwatch _timer;
+        private readonly Stopwatch _timer = new Stopwatch();
     public async Task<TResponse> Handle(TRequest request , RequestHandlerDelegate<TResponse> next, CancellationToken cancellationToken)
         {
             _timer.Start();

@@ -1,10 +1,10 @@
-﻿namespace Domain.Exceptions
+﻿namespace Domain.Exceptions;
+
+public abstract class DomainException : Exception
 {
-    public class DomainException : Exception
-    {
-        public DomainException(string tile,string message) :
-            base( message) 
-            =>  Titile = tile;
-       public string Titile { get; }
-    }
+    protected DomainException(string title, string message)
+        : base(message) =>
+        Title = title;
+
+    public string Title { get; }
 }

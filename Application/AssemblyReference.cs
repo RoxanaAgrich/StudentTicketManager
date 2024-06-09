@@ -1,6 +1,6 @@
 ﻿using System.Reflection;
 
-namespace Infrastrucrure.Repositoties
+namespace Application
 {
     public static class AssemblyReference
     {
