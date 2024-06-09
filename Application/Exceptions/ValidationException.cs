@@ -1,5 +1,4 @@
 ﻿using Domain.Exceptions;
-
 namespace Application.Exceptions
 {
     public sealed class ValidationException : DomainException

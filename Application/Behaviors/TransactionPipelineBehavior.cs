@@ -1,5 +1,5 @@
 ﻿
-using Infrastrucrure.Repositoties;
+using Domain.Abtractions.DbContext;
 using MediatR;
 using Microsoft.EntityFrameworkCore;
 
@@ -7,8 +7,8 @@ namespace Application.Behaviors;
 public class TransactionPipelineBehavior<TRequest, TResponse> : IPipelineBehavior<TRequest, TResponse>
         where TRequest : IRequest<TResponse>
 {
-    private readonly ApplicationDbContext _context;
-    public TransactionPipelineBehavior(ApplicationDbContext context)
+    private readonly IApplicationDbContext _context;
+    public TransactionPipelineBehavior(IApplicationDbContext context)
     {
         _context = context;
     }

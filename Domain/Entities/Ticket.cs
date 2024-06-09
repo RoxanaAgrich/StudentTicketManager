@@ -12,7 +12,7 @@ namespace Domain.Entities
         public DateTimeOffset? ModifiedOnUtc { get; set; }
         public Guid StudentId { get; set; }
         public virtual Student Student { get; set; }
-        public virtual Collection<Wish> Wishes { get; set; }
+        public virtual ICollection<Wish> Wishes { get; set; }
 
     }
 }

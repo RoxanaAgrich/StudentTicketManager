@@ -1,7 +1,5 @@
 ﻿using Domain.Abtractions.Common;
 using Domain.Abtractions.Entities;
-using System.Collections.ObjectModel;
-using System.ComponentModel.DataAnnotations.Schema;
 
 namespace Domain.Entities
 {
@@ -16,6 +14,6 @@ namespace Domain.Entities
        
         public Guid? ClassId { get; set; }
         public virtual Class Class { get; set; } 
-        public virtual Collection<Ticket> Tickets { get; set; }
+        public virtual ICollection<Ticket> Tickets { get; set; }
     }
 }

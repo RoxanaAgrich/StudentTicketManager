@@ -1,10 +1,8 @@
 ﻿using Application.Behaviors;
 using Application.Mapper;
-using FluentValidation;
+using Application;
 using Microsoft.Extensions.DependencyInjection;
 using MediatR;
-using Infrastrucrure.Repositoties;
-using Parts.Application.Behaviors;
 namespace Parts.Application.DependencyInjection.Extensions;
 public static class ServiceCollectionExtensions
 {
@@ -16,8 +14,6 @@ public static class ServiceCollectionExtensions
         .AddTransient(typeof(IPipelineBehavior<,>), typeof(PerformancePipelineBehavior<,>))
         .AddTransient(typeof(IPipelineBehavior<,>), typeof(TransactionPipelineBehavior<,>))
         .AddTransient(typeof(IPipelineBehavior<,>), typeof(TracingPipelineBehavior<,>))
-        .AddValidatorsFromAssembly(AssemblyReference.Assembly, includeInternalTypes: true);
-
     public static IServiceCollection AddConfigureAutoMapper(this IServiceCollection services)
         => services.AddAutoMapper(typeof(ServiceProfile));
 
