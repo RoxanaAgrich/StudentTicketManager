@@ -1,7 +1,8 @@
 ﻿using Domain.Shared;
 using MediatR;
 
-namespace Application.Services.Wish;
+namespace Application.Services.V2.Wish;
+
 
 public static class Command
 {

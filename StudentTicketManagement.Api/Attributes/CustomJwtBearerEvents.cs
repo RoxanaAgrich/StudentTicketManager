@@ -1,5 +1,5 @@
 ﻿using Application.Abtractions;
-using Application.Services.Identity;
+using Application.Services.V1.Identity;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using System.Security.Claims;
 

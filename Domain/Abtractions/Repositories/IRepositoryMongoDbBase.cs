@@ -1,21 +1,21 @@
-﻿using System.Linq.Expressions;
+﻿using Domain.Abtractions.Entities;
+using System.Linq.Expressions;
 
-namespace Domain.Abtractions.Repositories
+namespace Domain.Abtractions.Repositories;
+
+public interface IRepositoryMongoDbBase<TEntity, TKey> where TEntity : Entity<TKey>
 {
-    public interface IRepositoryMongoDbBase<TEntity> where TEntity : class
-    {
-        Task<TEntity> FindByIdAsync(string id, CancellationToken cancellationToken = default);
+    Task<TEntity> FindByIdAsync(TKey id, CancellationToken cancellationToken = default);
 
-        Task<TEntity> FindSingleAsync(Expression<Func<TEntity, bool>>? predicate = null, CancellationToken cancellationToken = default);
+    Task<TEntity> FindSingleAsync(Expression<Func<TEntity, bool>>? predicate = null, CancellationToken cancellationToken = default);
 
-        IQueryable<TEntity> FindAll(Expression<Func<TEntity, bool>>? predicate = null);
+    IQueryable<TEntity> FindAll(Expression<Func<TEntity, bool>>? predicate = null);
 
-        void Add(TEntity entity);
+    void Add(TEntity entity);
 
-        void Update(string id, TEntity entity);
+    void Update(TKey id, TEntity entity);
 
-        void Remove(string id);
+    void Remove(TKey id);
 
-        void RemoveMultiple(List<TEntity> entities);
-    }
+    void RemoveMultiple(List<TEntity> entities);
 }

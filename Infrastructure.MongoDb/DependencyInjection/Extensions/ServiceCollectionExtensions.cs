@@ -1,4 +1,5 @@
-﻿using Infrastructure.MongoDb.DependencyInjection.Options;
+﻿using Domain.Abtractions.UnitOfWork;
+using Infrastructure.MongoDb.DependencyInjection.Options;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Options;
@@ -12,6 +13,7 @@ public static class ServiceCollectionExtensions
     {
         services.Configure<MongoDbSettings>(configuration.GetSection(nameof(MongoDbSettings)));
 
+        services.AddScoped<IUnitOfWorkMongboDb, UnitOfWork.UnitOfWork>();
         services.AddSingleton<IMongoClient, MongoClient>(sp =>
         {
             var settings = sp.GetRequiredService<IOptions<MongoDbSettings>>().Value;

@@ -1,4 +1,4 @@
-﻿namespace Application.Services.Wish;
+﻿namespace Application.Services.V1.Wish;
 
 public static class Response
 {

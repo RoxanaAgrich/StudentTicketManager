@@ -1,4 +1,4 @@
-﻿using Application.Services.Wish;
+﻿using Application.Services.V1.Wish;
 using Asp.Versioning;
 using Domain.Extensions;
 using Domain.Shared;
@@ -6,7 +6,7 @@ using MediatR;
 using Microsoft.AspNetCore.Mvc;
 using StudentTicketManagement.Api.Abstractions;
 
-namespace StudentTicketManagement.Api.Controllers
+namespace StudentTicketManagement.Api.Controllers.V1
 {
     [ApiVersion(1)]
     public class WishController : ApiController
