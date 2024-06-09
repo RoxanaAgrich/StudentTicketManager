@@ -1,4 +1,5 @@
 ﻿using Application.Abtractions;
+using Domain.Abtractions.DbContext;
 using Domain.Abtractions.Repositories;
 using Domain.Abtractions.UnitOfWork;
 using Domain.Entities.Identity;
@@ -63,6 +64,8 @@ public static class ServiceCollectionExtensions
                             .MigrationsAssembly(typeof(ApplicationDbContext).Assembly.GetName().Name))
             .AddInterceptors(auditableInterceptor);
         });
+
+        services.AddScoped<IApplicationDbContext>(provider => provider.GetService<ApplicationDbContext>());
 
         services.AddIdentityCore<AppUser>(opt =>
         {

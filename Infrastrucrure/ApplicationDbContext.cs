@@ -3,7 +3,6 @@ using Domain.Entities;
 using Domain.Entities.Identity;
 using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
-using Action = Domain.Entities.Identity.Action;
 
 namespace Infrastrucrure;
 
