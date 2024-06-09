@@ -8,6 +8,6 @@ namespace Domain.Entities
         public string Name { get; set; }
         public DateTimeOffset CreatedOnUtc { get; set; }
         public DateTimeOffset? ModifiedOnUtc { get; set; }
-        public List<Student>? Students { get; set; }
+        public virtual ICollection<Student> Students { get; set; }
     }
 }

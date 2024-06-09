@@ -1,8 +1,11 @@
-﻿using Microsoft.EntityFrameworkCore.Metadata.Builders;
+﻿using Domain.Entities.Identity;
+using Microsoft.EntityFrameworkCore.Metadata.Builders;
 using Microsoft.EntityFrameworkCore;
 using Domain.Entities.Identity;
 using Infrastrucrure.Constant;
-namespace Infrastructure.Configurations;
+
+namespace Infrastrucrure.Configurations;
+
 internal sealed class ActionInFunctionConfiguration : IEntityTypeConfiguration<ActionInFunction>
 {
     public void Configure(EntityTypeBuilder<ActionInFunction> builder)

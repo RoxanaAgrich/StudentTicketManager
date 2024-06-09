@@ -1,6 +1,5 @@
-﻿using Domain.Entities.Identity;
+﻿namespace Domain.Entities.Identity;
 
-namespace Domain.Entities.Identity;
 public class Action
 {
     public string Id { get; set; }
