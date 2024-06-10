@@ -16,12 +16,9 @@ public class CreateWishCommandHandler : IRequestHandler<CreateWishCommand, Resul
     }
     public async Task<Result> Handle(CreateWishCommand request, CancellationToken cancellationToken)
     {
-        await _unitOfWork.StartSessionAsync(cancellationToken);
         var wishRepository = _unitOfWork.GetRepository<Domain.Entities.Wish, Guid>();
         var wish = new Domain.Entities.Wish(Guid.NewGuid(), request.name);
         wishRepository.Add(wish);
-        await _unitOfWork.CommitAsync(cancellationToken);
-        _unitOfWork.Dispose();
         return Result.Success();
     }
 }

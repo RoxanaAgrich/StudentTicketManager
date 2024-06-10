@@ -17,8 +17,11 @@ internal class UnitOfWork : IUnitOfWorkMongboDb
 
     public UnitOfWork(IConfiguration configuration)
     {
-        _client = new MongoClient(configuration.GetConnectionString("MongoDBSettings:ConnectionString"));
-        _database = _client.GetDatabase(configuration.GetSection("MongoDBSettings:DatabaseName").Value);
+        var connectionString = configuration["MongoDBSettings:ConnectionString"];
+        var databaseName = configuration["MongoDBSettings:DatabaseName"];
+
+        _client = new MongoClient(connectionString);
+        _database = _client.GetDatabase(databaseName);
         _repositories = new Dictionary<Type, object>();
     }
 
@@ -55,10 +58,11 @@ internal class UnitOfWork : IUnitOfWorkMongboDb
         await _session.AbortTransactionAsync(cancellationToken);
     }
 
-    public async Task StartSessionAsync(CancellationToken cancellationToken = default)
+    public async Task<IClientSessionHandle> StartSessionAsync(CancellationToken cancellationToken = default)
     {
         _session = await _client.StartSessionAsync(cancellationToken: cancellationToken);
         _session.StartTransaction();
+        return _session;
     }
 
     protected virtual void Dispose(bool disposing)
