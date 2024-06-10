@@ -1,15 +1,15 @@
 ﻿using Domain.Abtractions.Entities;
-using System.Reflection.Metadata;
 
 namespace Domain.Entities
 {
     public class Wish : Entity<Guid>
     {
-        public Wish(Guid id, string name) {
+        public Wish(Guid id, string name) { //, bool isActive) {
             Id = id;
             Name = name;
+           // IsActive = isActive;
         }
         public string Name { get; set; }
-        public virtual ICollection<WishTicket> WishTickets { get; set; }
+        public virtual ICollection<WishTicket>? WishTickets { get; set; }
     }
 }

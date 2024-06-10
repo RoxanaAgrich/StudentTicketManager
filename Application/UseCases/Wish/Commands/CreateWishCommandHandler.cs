@@ -14,7 +14,9 @@ namespace Application.UseCases.Wish.Commands
         }
         public async Task<Result> Handle(CreateWishCommand request, CancellationToken cancellationToken)
         {
+            // var wish = new Domain.Entities.Wish(Guid.NewGuid(), request.name, true);
             var wish = new Domain.Entities.Wish(Guid.NewGuid(), request.name);
+            wish.IsActive = true;
             _wishRepository.Add(wish);
             return Result.Success();
         }
