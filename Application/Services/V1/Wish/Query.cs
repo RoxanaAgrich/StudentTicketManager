@@ -1,9 +1,9 @@
 ﻿using Domain.Enumerations;
 using Domain.Shared;
 using MediatR;
-using static Application.Services.Wish.Response;
+using static Application.Services.V1.Wish.Response;
 
-namespace Application.Services.Wish;
+namespace Application.Services.V1.Wish;
 
 public static class Query
 {

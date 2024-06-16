@@ -1,7 +1,7 @@
 ﻿using Domain.Shared;
 using MediatR;
 
-namespace Application.Services.Identity;
+namespace Application.Services.V1.Identity;
 
 public static class Query
 {

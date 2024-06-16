@@ -2,7 +2,6 @@
 using Domain.Entities;
 using Domain.Entities.Identity;
 using Microsoft.EntityFrameworkCore.Infrastructure;
-using Action = Domain.Entities.Identity.Action;
 
 namespace Domain.Abtractions.DbContext
 {

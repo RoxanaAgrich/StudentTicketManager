@@ -1,5 +1,4 @@
 ﻿using Domain.Abtractions.Entities;
-using System.Reflection.Metadata;
 
 namespace Domain.Entities
 {
@@ -8,6 +7,7 @@ namespace Domain.Entities
         public Wish(Guid id, string name) {
             Id = id;
             Name = name;
+            IsActive = true;
         }
         public string Name { get; set; }
         public virtual ICollection<WishTicket> WishTickets { get; set; }

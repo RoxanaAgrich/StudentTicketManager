@@ -2,9 +2,9 @@
 using MediatR;
 using Microsoft.AspNetCore.Mvc;
 using StudentTicketManagement.Api.Abstractions;
-using static Application.Services.Identity.Query;
+using static Application.Services.V1.Identity.Query;
 
-namespace StudentTicketManagement.Api.Controllers
+namespace StudentTicketManagement.Api.Controllers.V1
 {
     [ApiVersion(1)]
     public class AuthController : ApiController

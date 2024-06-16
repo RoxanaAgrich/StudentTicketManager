@@ -1,6 +1,7 @@
 using Serilog;
 using Application.DependencyInjection.Extensions;
 using Infrastrucrure.DependencyInjection.Extensions;
+using Infrastructure.MongoDb.DependencyInjection.Extensions;
 using StudentTicketManagement.Api.Middleware;
 using StudentTicketManagement.Api.DependencyInjection.Extensions;
 using MicroElements.Swashbuckle.FluentValidation.AspNetCore;
@@ -17,6 +18,7 @@ builder.Logging
 
 builder.Host.UseSerilog();
 builder.Services.AddInfrastructureServices();
+builder.Services.AddMongoDbConfiguration(builder.Configuration);
 builder.Services.AddRedisService(builder.Configuration);
 
 builder.Services.AddJwtAuthentication(builder.Configuration);
